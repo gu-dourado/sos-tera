@@ -20,8 +20,11 @@ public class User {
           sequenceName = "USERS_SEQ",
           allocationSize = 1
   )
-  Long id;
-  String nome;
-  String email;
-  String senha;
+  private Long id;
+  private String nome;
+  private String email;
+  private String senha;
+
+//  @ManyToOne
+//  private Alert alerta;
 }

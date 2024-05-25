@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_alerts")
@@ -23,10 +24,15 @@ public class Alert {
           sequenceName = "ALERTS_SEQ",
           allocationSize = 1
   )
-  Long id;
+  private Long id;
+  private String tipoDesastre;
+  private LocalDateTime dataHora;
+  private Character gravidade;
+  private String status;
 
-  String tipo;
-  LocalDateTime dataEHora;
-  Character gravidade;
-  String status;
+//  @ManyToOne
+//  private Location localizacao;
+//
+//  @OneToMany(mappedBy = "alerta")
+//  private List<User> usuarios;
 }

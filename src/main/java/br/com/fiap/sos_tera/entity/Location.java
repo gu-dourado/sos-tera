@@ -3,6 +3,9 @@ package br.com.fiap.sos_tera.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tbl_locations")
 @Getter
@@ -20,8 +23,11 @@ public class Location {
           sequenceName = "LOCATION_SEQ",
           allocationSize = 1
   )
-  Long id;
-  String latitude;
-  String longitude;
-  String nome;
+  private Long id;
+  private String latitude;
+  private String longitude;
+  private String nome;
+
+//  @OneToMany(mappedBy = "localizacao")
+//  private List<Alert> alertas;
 }

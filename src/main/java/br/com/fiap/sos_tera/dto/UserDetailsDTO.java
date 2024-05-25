@@ -4,7 +4,7 @@ import br.com.fiap.sos_tera.entity.User;
 
 public record UserDetailsDTO(
         Long id,
-        String name,
+        String nome,
         String email
 ) {
   public UserDetailsDTO(User user) {
