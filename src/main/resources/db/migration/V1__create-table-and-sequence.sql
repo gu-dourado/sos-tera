@@ -1,0 +1,37 @@
+CREATE SEQUENCE USERS_SEQ
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE LOCATIONS_SEQ
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+CREATE SEQUENCE ALERTS_SEQ
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE TABLE TBL_ALERTS (
+                            ID INTEGER DEFAULT ALERTS_SEQ.NEXTVAL NOT NULL,
+                            TIPO_DESASTRE VARCHAR2(100) NOT NULL,
+                            DATA_HORA VARCHAR2(20) NOT NULL,
+                            GRAVIDADE CHAR(1) NOT NULL,
+                            STATUS VARCHAR2(100) NOT NULL
+);
+
+CREATE TABLE TBL_USERS (
+                           ID INTEGER DEFAULT USERS_SEQ.NEXTVAL NOT NULL,
+                           NOME VARCHAR2(100) NOT NULL,
+                           EMAIL VARCHAR2(100) NOT NULL,
+                           SENHA VARCHAR2(100) NOT NULL
+);
+
+CREATE TABLE TBL_LOCATIONS (
+                               ID INTEGER DEFAULT LOCATIONS_SEQ.NEXTVAL NOT NULL,
+                               NOME VARCHAR2(255) NOT NULL,
+                               LATITUDE VARCHAR2(255) NOT NULL,
+                               LONGITUDE VARCHAR2(255) NOT NULL
+);
