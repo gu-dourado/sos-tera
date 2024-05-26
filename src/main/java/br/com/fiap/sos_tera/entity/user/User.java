@@ -1,5 +1,6 @@
-package br.com.fiap.sos_tera.entity;
+package br.com.fiap.sos_tera.entity.user;
 
+import br.com.fiap.sos_tera.entity.alert.Alert;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +25,4 @@ public class User {
   private String nome;
   private String email;
   private String senha;
-
-//  @ManyToOne
-//  private Alert alerta;
 }

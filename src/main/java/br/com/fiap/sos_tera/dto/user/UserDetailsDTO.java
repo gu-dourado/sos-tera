@@ -1,6 +1,6 @@
-package br.com.fiap.sos_tera.dto;
+package br.com.fiap.sos_tera.dto.user;
 
-import br.com.fiap.sos_tera.entity.User;
+import br.com.fiap.sos_tera.entity.user.User;
 
 public record UserDetailsDTO(
         Long id,

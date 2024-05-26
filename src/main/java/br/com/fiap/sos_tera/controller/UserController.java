@@ -1,7 +1,7 @@
 package br.com.fiap.sos_tera.controller;
 
-import br.com.fiap.sos_tera.dto.UserDetailsDTO;
-import br.com.fiap.sos_tera.dto.UserRegisterDTO;
+import br.com.fiap.sos_tera.dto.user.UserDetailsDTO;
+import br.com.fiap.sos_tera.dto.user.UserRegisterDTO;
 import br.com.fiap.sos_tera.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class UserController {
 
   @PutMapping("/atualizar")
   @ResponseStatus(HttpStatus.OK)
-  public UserDetailsDTO updateUser(UserRegisterDTO user) {
+  public UserDetailsDTO updateUser(@RequestBody @Valid UserRegisterDTO user) {
     return userService.update(user);
   }
 

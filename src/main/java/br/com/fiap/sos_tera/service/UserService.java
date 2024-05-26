@@ -1,8 +1,9 @@
 package br.com.fiap.sos_tera.service;
 
-import br.com.fiap.sos_tera.dto.UserDetailsDTO;
-import br.com.fiap.sos_tera.dto.UserRegisterDTO;
-import br.com.fiap.sos_tera.entity.User;
+import br.com.fiap.sos_tera.dto.user.UserDetailsDTO;
+import br.com.fiap.sos_tera.dto.user.UserRegisterDTO;
+import br.com.fiap.sos_tera.entity.user.User;
+import br.com.fiap.sos_tera.entity.user.exceptions.UserNotFoundException;
 import br.com.fiap.sos_tera.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserService {
     if (optionalUser.isPresent()) {
       userRepository.delete(optionalUser.get());
     } else {
-      throw new RuntimeException("User not found with ID: " + id);
+      throw new UserNotFoundException("User not found with ID: " + id);
     }
   }
 
@@ -40,21 +41,17 @@ public class UserService {
 
     Optional<User> optionalUser = userRepository.findById(user.getId());
 
+    User savedUser = userRepository.save(user);
+
     if (optionalUser.isPresent()) {
-      return new UserDetailsDTO(userRepository.save(optionalUser.get()));
+      return new UserDetailsDTO(savedUser);
     } else {
-      throw new RuntimeException("User not found");
+      throw new UserNotFoundException("User not found");
     }
   }
 
   public UserDetailsDTO get(Long id) {
-    Optional<User> optionalUser = userRepository.findById(id);
-
-    if (optionalUser.isPresent()) {
-      return new UserDetailsDTO(optionalUser.get());
-    } else {
-      throw new RuntimeException("User not found with ID: " + id);
-    }
+      return new UserDetailsDTO(userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id)));
   }
 
   public List<UserDetailsDTO> getAll() {

@@ -1,11 +1,7 @@
-package br.com.fiap.sos_tera.entity;
+package br.com.fiap.sos_tera.entity.alert;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_alerts")
@@ -25,14 +21,12 @@ public class Alert {
           allocationSize = 1
   )
   private Long id;
-  private String tipoDesastre;
-  private LocalDateTime dataHora;
-  private Character gravidade;
-  private String status;
 
-//  @ManyToOne
-//  private Location localizacao;
-//
-//  @OneToMany(mappedBy = "alerta")
-//  private List<User> usuarios;
+  @Column(name = "tipo_desastre")
+  private String tipoDesastre;
+
+  @Column(name = "data_hora")
+  private String dataHora;
+  private String gravidade;
+  private String status;
 }
