@@ -2,9 +2,8 @@ package br.com.fiap.sos_tera.service;
 
 import br.com.fiap.sos_tera.dto.location.LocationDetailsDTO;
 import br.com.fiap.sos_tera.dto.location.LocationRegisterDTO;
-import br.com.fiap.sos_tera.entity.locations.Location;
-import br.com.fiap.sos_tera.entity.locations.exceptions.LocationNotFoundException;
-import br.com.fiap.sos_tera.entity.user.User;
+import br.com.fiap.sos_tera.model.locations.Location;
+import br.com.fiap.sos_tera.model.locations.exceptions.LocationNotFoundException;
 import br.com.fiap.sos_tera.repository.LocationRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

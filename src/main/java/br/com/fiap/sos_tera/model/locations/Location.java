@@ -1,10 +1,7 @@
-package br.com.fiap.sos_tera.entity.locations;
+package br.com.fiap.sos_tera.model.locations;
 
-import br.com.fiap.sos_tera.entity.alert.Alert;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_locations")

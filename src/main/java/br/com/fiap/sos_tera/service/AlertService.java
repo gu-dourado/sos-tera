@@ -2,8 +2,8 @@ package br.com.fiap.sos_tera.service;
 
 import br.com.fiap.sos_tera.dto.alert.AlertDetailsDTO;
 import br.com.fiap.sos_tera.dto.alert.AlertRegisterDTO;
-import br.com.fiap.sos_tera.entity.alert.Alert;
-import br.com.fiap.sos_tera.entity.user.exceptions.UserNotFoundException;
+import br.com.fiap.sos_tera.model.alert.Alert;
+import br.com.fiap.sos_tera.model.user.exceptions.UserNotFoundException;
 import br.com.fiap.sos_tera.repository.AlertRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

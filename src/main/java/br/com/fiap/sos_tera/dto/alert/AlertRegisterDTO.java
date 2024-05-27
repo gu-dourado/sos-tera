@@ -14,7 +14,10 @@ public record AlertRegisterDTO(
         String gravidade,
 
         @NotBlank(message = "Status é obrigatório!")
-        String status
+        String status,
+
+        @NotBlank(message = "Localização é obrigatório!")
+        String localizacao
 ) {
 
 }

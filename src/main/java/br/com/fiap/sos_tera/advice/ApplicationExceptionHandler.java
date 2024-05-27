@@ -1,8 +1,9 @@
 package br.com.fiap.sos_tera.advice;
 
-import br.com.fiap.sos_tera.entity.alert.exceptions.AlertNotFoundException;
-import br.com.fiap.sos_tera.entity.locations.exceptions.LocationNotFoundException;
-import br.com.fiap.sos_tera.entity.user.exceptions.UserNotFoundException;
+import br.com.fiap.sos_tera.model.alert.exceptions.AlertNotFoundException;
+import br.com.fiap.sos_tera.model.locations.exceptions.LocationNotFoundException;
+import br.com.fiap.sos_tera.model.user.exceptions.UserNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -28,6 +29,14 @@ public class ApplicationExceptionHandler {
       errorMap.put(field.getField(), field.getDefaultMessage());
     }
 
+    return errorMap;
+  }
+
+  @ResponseStatus(HttpStatus.CONFLICT)
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  public Map<String, String> handleDataIntegrityViolation() {
+    Map<String, String> errorMap = new HashMap<>();
+    errorMap.put("error", "Already registered!");
     return errorMap;
   }
 

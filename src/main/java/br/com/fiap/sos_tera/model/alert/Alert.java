@@ -1,4 +1,4 @@
-package br.com.fiap.sos_tera.entity.alert;
+package br.com.fiap.sos_tera.model.alert;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,6 +27,6 @@ public class Alert {
 
   @Column(name = "data_hora")
   private String dataHora;
-  private String gravidade;
-  private String status;
+
+  private String gravidade, status, localizacao;
 }

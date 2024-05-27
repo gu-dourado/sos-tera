@@ -1,6 +1,6 @@
 package br.com.fiap.sos_tera.dto.location;
 
-import br.com.fiap.sos_tera.entity.locations.Location;
+import br.com.fiap.sos_tera.model.locations.Location;
 
 public record LocationDetailsDTO(
         Long id,

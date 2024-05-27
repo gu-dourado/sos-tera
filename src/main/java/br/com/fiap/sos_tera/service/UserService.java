@@ -2,11 +2,12 @@ package br.com.fiap.sos_tera.service;
 
 import br.com.fiap.sos_tera.dto.user.UserDetailsDTO;
 import br.com.fiap.sos_tera.dto.user.UserRegisterDTO;
-import br.com.fiap.sos_tera.entity.user.User;
-import br.com.fiap.sos_tera.entity.user.exceptions.UserNotFoundException;
+import br.com.fiap.sos_tera.model.user.User;
+import br.com.fiap.sos_tera.model.user.exceptions.UserNotFoundException;
 import br.com.fiap.sos_tera.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +20,12 @@ public class UserService {
   private UserRepository userRepository;
 
   public UserDetailsDTO save(UserRegisterDTO userRegisterDTO) {
+    String encryptedPassword = new BCryptPasswordEncoder().encode(userRegisterDTO.senha());
+
     User user = new User();
     BeanUtils.copyProperties(userRegisterDTO, user);
+    user.setSenha(encryptedPassword);
+
     User savedUser = userRepository.save(user);
     return new UserDetailsDTO(savedUser);
   }
